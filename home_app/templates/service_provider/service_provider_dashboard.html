@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        .sidebar a:hover {
+            background: #444;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+            width: 100%;
+        }
+        .dashboard-section {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            border-radius: 3px;
+        }
+        .accept { background: green; }
+        .reject { background: red; }
+        .update-price { background: blue; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="#bookings"><i class="fas fa-calendar-check"></i> Bookings</a>
+        <a href="#pricing"><i class="fas fa-tag"></i> Manage Pricing</a>
+        <a href="#messages"><i class="fas fa-envelope"></i> Messages</a>
+    </div>
+    
+    <div class="content">
+        <div id="bookings" class="dashboard-section">
+            <h2>Bookings</h2>
+            <table>
+                <tr>
+                    <th>Customer</th>
+                    <th>Service</th>
+                    <th>Time</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>Plumbing</td>
+                    <td>10:00 AM</td>
+                    <td>123 Street, City</td>
+                    <td>
+                        <button class="btn accept">Accept</button>
+                        <button class="btn reject">Reject</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="pricing" class="dashboard-section">
+            <h2>Manage Pricing</h2>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Current Price</th>
+                    <th>New Price</th>
+                    <th>Update</th>
+                </tr>
+                <tr>
+                    <td>Plumbing</td>
+                    <td>$50</td>
+                    <td><input type="text" placeholder="Enter new price"></td>
+                    <td><button class="btn update-price">Update</button></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="messages" class="dashboard-section">
+            <h2>Messages</h2>
+            <table>
+                <tr>
+                    <th>From</th>
+                    <th>Message</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Can you schedule a service for tomorrow?</td>
+                    <td><button class="btn">Reply</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
